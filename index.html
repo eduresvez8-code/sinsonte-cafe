@@ -4,6 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Sinsonte Café — Una taza, una melodía</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
@@ -20,94 +21,268 @@
   --radius:14px;
   --glass: rgba(255,255,255,.03);
 }
+
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+
 body{
-  margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+  margin:0;
+  font-family:Inter,system-ui;
   background: linear-gradient(135deg, rgba(5,5,5,1) 0%, rgba(22,16,12,1) 35%, rgba(31,21,14,1) 60%);
-  color:#fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  color:#fff;
 }
 
 /* NAV */
 nav{
-  position:fixed; top:0; left:0; right:0; height:76px; display:flex; align-items:center;
-  background: linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.35));
-  border-bottom:1px solid rgba(201,164,76,0.06); z-index:80; backdrop-filter: blur(6px);
+  position:fixed;
+  top:0; left:0; right:0;
+  height:76px;
+  display:flex;
+  align-items:center;
+  background:rgba(0,0,0,.55);
+  border-bottom:1px solid rgba(201,164,76,0.06);
+  backdrop-filter:blur(6px);
+  z-index:80;
 }
-nav .wrap{width:min(1200px,94%);margin:auto;display:flex;align-items:center;gap:16px}
-.logo{
-  display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--dorado);
-}
-.logo img{width:54px;height:54px;border-radius:12px;object-fit:contain;box-shadow:var(--gold-shadow)}
-.brand{font-family:"Playfair Display",serif;font-size:1.05rem;color:var(--dorado)}
-.menu{margin-left:auto;display:flex;gap:12px;align-items:center}
-.menu a{
-  color:var(--muted); text-decoration:none; padding:.5rem .8rem; border-radius:999px; font-weight:600;
-  transition: all .22s ease;
-}
-.menu a:hover{ color:#fff; transform:translateY(-4px); text-shadow:0 0 8px rgba(201,164,76,.12) }
 
-/* HERO */
-#inicio{min-height:96vh; display:grid; place-items:center; padding-top:80px; position:relative; overflow:hidden}
-.hero{
-  width:min(1100px,95%); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.22));
-  border-radius:20px; padding:36px; box-shadow:var(--card-shadow); border:1px solid rgba(201,164,76,.06);
-  display:grid; grid-template-columns:1fr 420px; gap:26px; align-items:center;
+nav .wrap{
+  width:min(1200px,92%);
+  margin:auto;
+  display:flex;
+  align-items:center;
+  gap:16px;
 }
-.hero-left h1{font-family:"Playfair Display",serif; font-size:clamp(2.1rem,4.6vw,3.6rem); color:var(--dorado); margin:0}
-.slogan{
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+
+.logo img{
+  width:58px;
+  height:58px;
+  object-fit:contain;
+  filter:drop-shadow(0 3px 8px rgba(201,164,76,.4));
+}
+
+.brand{
   font-family:"Playfair Display",serif;
   color:var(--dorado);
-  font-size:1.2rem;
-  margin-top:6px;
 }
-.hero-left p{color:var(--muted); margin-top:10px; line-height:1.6}
-.cta-row{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
-.btn{
-  padding:.85rem 1.4rem; border-radius:999px; font-weight:800; cursor:pointer; text-decoration:none;
-  background:linear-gradient(90deg,var(--dorado-2),var(--dorado)); color:#120f07; box-shadow:var(--gold-shadow);
-  border:0; transition: transform .18s ease, box-shadow .18s ease;
-}
-.btn:hover{ transform:translateY(-4px); box-shadow:0 22px 60px rgba(201,164,76,.22) }
-.hero-right{display:flex; align-items:center; justify-content:center}
-.hero-right img{width:100%; height:100%; object-fit:cover; border-radius:12px; border:2px solid rgba(255,255,255,.03); box-shadow:var(--card-shadow)}
 
-/* SECTION HEAD */
-section{padding:80px 0}
-.section-head{width:100%; display:flex; align-items:end; justify-content:space-between; gap:12px; margin-bottom:18px}
-.section-head h2{font-family:"Playfair Display",serif;color:var(--dorado); font-size:clamp(1.4rem,3.2vw,2.2rem); margin:0}
-.section-head .sub{color:var(--muted); font-weight:600}
+.menu{
+  margin-left:auto;
+  display:flex;
+  gap:12px;
+}
+
+.menu a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:.5rem .8rem;
+  font-weight:600;
+  border-radius:999px;
+  transition:.25s ease;
+}
+.menu a:hover{
+  color:#fff;
+  transform:translateY(-3px);
+}
+
+/* HERO */
+#inicio{
+  min-height:95vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top:110px;
+}
+
+.hero{
+  width:100%;
+  max-width:1150px;
+  background:rgba(255,255,255,0.04);
+  border-radius:18px;
+  padding:36px;
+  display:grid;
+  grid-template-columns:1fr 420px;
+  gap:26px;
+  border:1px solid rgba(255,255,255,.06);
+  box-shadow:var(--card-shadow);
+}
+
+.hero-left h1{
+  font-family:"Playfair Display",serif;
+  font-size:3.2rem;
+  margin:0;
+  color:var(--dorado);
+}
+
+.slogan{
+  font-family:"Playfair Display",serif;
+  color:var(--dorado-2);
+  margin-top:6px;
+  font-size:1.2rem;
+}
+
+.hero-left p{
+  color:var(--muted);
+  margin-top:12px;
+  line-height:1.6;
+}
+
+.cta-row{
+  display:flex;
+  gap:14px;
+  margin-top:18px;
+}
+
+.btn{
+  padding:.85rem 1.4rem;
+  border-radius:999px;
+  background:linear-gradient(90deg,var(--dorado-2),var(--dorado));
+  color:#111;
+  font-weight:700;
+  text-decoration:none;
+  box-shadow:var(--gold-shadow);
+  transition:.22s;
+}
+.btn:hover{
+  transform:translateY(-4px);
+}
+
+.hero-right img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:12px;
+  box-shadow:var(--card-shadow);
+}
+
+/* SECTION */
+section{
+  padding:80px 0;
+}
+
+.section-head{
+  max-width:1150px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  padding:0 20px;
+}
+
+.section-head h2{
+  font-family:"Playfair Display",serif;
+  color:var(--dorado);
+  margin:0;
+}
 
 /* HISTORIA */
-#historia .grid{display:grid; grid-template-columns:1.1fr .9fr; gap:20px}
-.card{background:var(--glass); padding:20px; border-radius:12px; border:1px solid rgba(255,255,255,.03); box-shadow:var(--card-shadow)}
-.card h3{color:var(--dorado); font-family:"Playfair Display",serif}
-.card p{color:var(--muted); line-height:1.6}
-.landscape{overflow:hidden;border-radius:12px;border:2px solid rgba(255,255,255,.03)}
-.landscape img{width:100%;height:100%;object-fit:cover;display:block}
+#historia .grid{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:22px;
+  padding:0 20px;
+}
+
+.card{
+  padding:20px;
+  border-radius:12px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.landscape img{
+  width:100%;
+  height:100%;
+  border-radius:12px;
+  object-fit:cover;
+}
 
 /* PRODUCTOS */
-.products{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start}
-.product-card{
-  background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.12));
-  padding:18px;border-radius:12px;border:2px solid transparent; box-shadow:0 10px 30px rgba(0,0,0,.5);
+.products{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  padding:0 20px;
 }
-.product-media{height:360px;border-radius:10px;overflow:hidden;background:#0b0b0b;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.03)}
-.product-media img{width:100%;height:100%;object-fit:cover;display:block}
+
+.product-card{
+  background:rgba(255,255,255,.04);
+  padding:18px;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.06);
+}
+
+.product-media{
+  height:340px;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+.product-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.product-title{
+  margin-top:12px;
+  font-weight:700;
+  color:var(--muted);
+}
 
 /* PROCESO */
-.steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
-.step{
-  position:relative; overflow:hidden; border-radius:12px; height:220px;
+.steps{
+  max-width:1150px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  padding:0 20px;
 }
-.step img{width:100%; height:100%; object-fit:cover; display:block; filter:brightness(.7); transition:all .35s ease}
-.step .overlay{position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:14px; color:#fff;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.6) 100%);}
+
+.step{
+  height:220px;
+  overflow:hidden;
+  border-radius:12px;
+}
+
+.step img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
 
 /* CONTACTO */
-.sicons{ display:flex; gap:12px; margin-top:12px; flex-wrap:wrap }
+.sicons{
+  max-width:1150px;
+  margin:30px auto 0 auto;
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  padding:0 20px;
+}
+
 .sicon img{
-  width:42px; height:42px; object-fit:contain;
+  width:48px;
+  height:48px;
+  object-fit:contain;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
 }
 </style>
 </head>
@@ -116,13 +291,13 @@ section{padding:80px 0}
 
 <!-- NAV -->
 <nav>
-  <div class="wrap container">
-    <a class="logo" href="#inicio" aria-label="Sinsonte Café">
-      <img src="assets/images/logo-sinsonte.png" alt="Logo Sinsonte">
+  <div class="wrap">
+    <a class="logo" href="#inicio">
+      <img src="assets/images/logo-sinsonte-dorado.png" alt="Logo Sinsonte Café">
       <span class="brand">Sinsonte Café</span>
     </a>
 
-    <div class="menu" role="navigation">
+    <div class="menu">
       <a href="#inicio">Inicio</a>
       <a href="#historia">Historia</a>
       <a href="#productos">Productos</a>
@@ -133,17 +308,17 @@ section{padding:80px 0}
 </nav>
 
 <!-- HERO -->
-<main id="inicio" class="container" style="padding-top:110px">
-  <div class="hero" role="banner">
+<section id="inicio">
+  <div class="hero">
     <div class="hero-left">
       <h1>Sinsonte Café</h1>
       <div class="slogan">Una taza, una melodía</div>
 
-      <p class="lead">Pueblo Rico, Risaralda — Café de especialidad, 100% arábica, cultivado con respeto y tostado por lotes.</p>
+      <p>Pueblo Rico, Risaralda — Café de especialidad, cultivado con respeto y tostado por lotes.</p>
 
       <div class="cta-row">
         <a class="btn" href="#productos">Ver productos</a>
-        <a class="btn" href="#proceso" style="background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.04)">Nuestro proceso</a>
+        <a class="btn" href="#proceso" style="background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.08)">Nuestro proceso</a>
       </div>
     </div>
 
@@ -151,10 +326,10 @@ section{padding:80px 0}
       <img src="assets/images/hero.jpg" alt="Paisaje cafetero">
     </div>
   </div>
-</main>
+</section>
 
 <!-- HISTORIA -->
-<section id="historia" class="container">
+<section id="historia">
   <div class="section-head">
     <h2>Nuestra historia</h2>
     <div class="sub">Pueblo Rico — Risaralda</div>
@@ -163,7 +338,7 @@ section{padding:80px 0}
   <div class="grid">
     <div class="card">
       <h3>Raíces y tradición</h3>
-      <p>Somos una familia cafetera de Pueblo Rico. Cultivamos con prácticas responsables y cuidamos cada etapa para ofrecer un café con carácter: floral, afrutado y dulce.</p>
+      <p>Somos una familia cafetera de Pueblo Rico. Cultivamos con prácticas responsables…</p>
     </div>
 
     <div class="card landscape">
@@ -173,14 +348,12 @@ section{padding:80px 0}
 </section>
 
 <!-- PRODUCTOS -->
-<section id="productos" class="container">
+<section id="productos">
   <div class="section-head">
     <h2>Nuestros productos</h2>
-    <div class="sub">Elige variedad y peso — añade al carrito</div>
   </div>
 
   <div class="products">
-    <!-- Producto 1 -->
     <div class="product-card">
       <div class="product-media">
         <img src="assets/images/producto-castillo.jpg" alt="Castillo Rosario">
@@ -188,7 +361,6 @@ section{padding:80px 0}
       <div class="product-title">Castillo Rosario</div>
     </div>
 
-    <!-- Producto 2 -->
     <div class="product-card">
       <div class="product-media">
         <img src="assets/images/producto-bourbon.jpg" alt="Bourbon Rosado">
@@ -199,40 +371,38 @@ section{padding:80px 0}
 </section>
 
 <!-- PROCESO -->
-<section id="proceso" class="container">
+<section id="proceso">
   <div class="section-head">
     <h2>Proceso</h2>
-    <div class="sub">Seis etapas</div>
   </div>
 
   <div class="steps">
-    <div class="step"><img src="assets/images/proceso-siembra.jpg" alt=""></div>
-    <div class="step"><img src="assets/images/proceso-recoleccion.jpg" alt=""></div>
-    <div class="step"><img src="assets/images/proceso-despulpado.jpg" alt=""></div>
-    <div class="step"><img src="assets/images/proceso-fermentacion.jpg" alt=""></div>
-    <div class="step"><img src="assets/images/proceso-secado.jpg" alt=""></div>
-    <div class="step"><img src="assets/images/proceso-tostion.jpg" alt=""></div>
+    <div class="step"><img src="assets/images/proceso-siembra.jpg"></div>
+    <div class="step"><img src="assets/images/proceso-recoleccion.jpg"></div>
+    <div class="step"><img src="assets/images/proceso-despulpado.jpg"></div>
+    <div class="step"><img src="assets/images/proceso-fermentacion.jpg"></div>
+    <div class="step"><img src="assets/images/proceso-secado.jpg"></div>
+    <div class="step"><img src="assets/images/proceso-tostion.jpg"></div>
   </div>
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto" class="container">
+<section id="contacto">
   <div class="section-head">
     <h2>Contacto</h2>
-    <div class="sub">Escríbenos</div>
   </div>
 
   <div class="sicons">
-    <a class="sicon" href="#"><img src="assets/images/icono-instagram.png"></a>
-    <a class="sicon" href="#"><img src="assets/images/icono-facebook.png"></a>
-    <a class="sicon" href="#"><img src="assets/images/icono-whatsapp.png"></a>
-    <a class="sicon" href="#"><img src="assets/images/icono-correo.png"></a>
-    <a class="sicon" href="#"><img src="assets/images/icono-tiktok.png"></a>
+    <a class="sicon"><img src="assets/images/icono-instagram.png"></a>
+    <a class="sicon"><img src="assets/images/icono-facebook.png"></a>
+    <a class="sicon"><img src="assets/images/icono-whatsapp.png"></a>
+    <a class="sicon"><img src="assets/images/icono-correo.png"></a>
+    <a class="sicon"><img src="assets/images/icono-tiktok.png"></a>
   </div>
 </section>
 
 <footer>
-  <div class="container">© 2025 <strong>Sinsonte Café</strong> — Una taza, una melodía.</div>
+  © 2025 Sinsonte Café — Una taza, una melodía.
 </footer>
 
 </body>
