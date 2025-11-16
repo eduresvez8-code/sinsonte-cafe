@@ -16,37 +16,30 @@
   --cafe:#3a2a1a;
   --muted:#d8d0c6;
   --card-shadow: 0 18px 50px rgba(0,0,0,.65);
-  --gold-shadow: 0 18px 50px rgba(201,164,76,.12);
+  --gold-shadow: 0 12px 36px rgba(201,164,76,.14);
   --radius:14px;
   --glass: rgba(255,255,255,.03);
-  --accent-border: rgba(201,164,76,.18);
 }
-
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
   margin:0; font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial;
   background: linear-gradient(135deg, rgba(5,5,5,1) 0%, rgba(22,16,12,1) 35%, rgba(31,21,14,1) 60%);
   color:#fff; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  overflow-x:hidden;
 }
 
-/* NAV — logo pegado al fondo (sin margen) */
+/* NAV */
 nav{
   position:fixed; top:0; left:0; right:0; height:76px; display:flex; align-items:center;
-  background: linear-gradient(180deg, rgba(0,0,0,.75), rgba(0,0,0,.55));
+  background: linear-gradient(180deg, rgba(0,0,0,.65), rgba(0,0,0,.35));
   border-bottom:1px solid rgba(201,164,76,0.06); z-index:80; backdrop-filter: blur(6px);
 }
 nav .wrap{width:min(1200px,94%);margin:auto;display:flex;align-items:center;gap:16px}
 .logo{
   display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--dorado);
-  padding:0; margin:0; /* SIN margen para que quede pegado al fondo */
 }
-.logo img{
-  width:56px;height:56px;object-fit:contain; /* sin border-radius para quedar natural */
-  filter: drop-shadow(0 6px 18px rgba(0,0,0,.6));
-}
-.brand{font-family:"Playfair Display",serif;font-size:1.05rem;color:var(--dorado);margin-left:4px}
+.logo img{width:54px;height:54px;border-radius:12px;object-fit:contain;box-shadow:var(--gold-shadow)}
+.brand{font-family:"Playfair Display",serif;font-size:1.05rem;color:var(--dorado)}
 .menu{margin-left:auto;display:flex;gap:12px;align-items:center}
 .menu a{
   color:var(--muted); text-decoration:none; padding:.5rem .8rem; border-radius:999px; font-weight:600;
@@ -54,33 +47,22 @@ nav .wrap{width:min(1200px,94%);margin:auto;display:flex;align-items:center;gap:
 }
 .menu a:hover{ color:#fff; transform:translateY(-4px); text-shadow:0 0 8px rgba(201,164,76,.12) }
 
-/* HERO (con borde dorado sutil como te gustaba) */
+/* HERO */
 #inicio{min-height:96vh; display:grid; place-items:center; padding-top:80px; position:relative; overflow:hidden}
 .hero{
   width:min(1100px,95%); background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.22));
-  border-radius:20px; padding:36px; box-shadow:var(--card-shadow);
-  border:1px solid linear-gradient(180deg, rgba(201,164,76,.06), rgba(201,164,76,.03));
+  border-radius:20px; padding:36px; box-shadow:var(--card-shadow); border:1px solid rgba(201,164,76,.06);
   display:grid; grid-template-columns:1fr 420px; gap:26px; align-items:center;
-  position:relative;
 }
-/* golden outline glow */
-.hero::before{
-  content:"";
-  position:absolute; inset:-2px;
-  border-radius:22px;
-  pointer-events:none;
-  background:linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,0));
-  box-shadow: 0 8px 40px rgba(201,164,76,0.06), inset 0 0 0 1px rgba(201,164,76,0.06);
-}
-
 .hero-left h1{font-family:"Playfair Display",serif; font-size:clamp(2.1rem,4.6vw,3.6rem); color:var(--dorado); margin:0}
 .slogan{
   font-family:"Playfair Display",serif;
-  color:var(--dorado-2);
-  font-size:1.05rem;
+  color:var(--dorado);
+  font-size:1.85rem;      /* ← MÁS GRANDE */
   margin-top:6px;
+  font-weight:700;
 }
-.hero-left p{color:var(--muted); margin-top:10px; line-height:1.6}
+.hero-left p{color:var(--muted); margin-top:10px; line-height:1.6; font-size:1.05rem;}
 .cta-row{margin-top:18px; display:flex; gap:12px; flex-wrap:wrap}
 .btn{
   padding:.85rem 1.4rem; border-radius:999px; font-weight:800; cursor:pointer; text-decoration:none;
@@ -105,74 +87,26 @@ section{padding:80px 0}
 .landscape{overflow:hidden;border-radius:12px;border:2px solid rgba(255,255,255,.03)}
 .landscape img{width:100%;height:100%;object-fit:cover;display:block}
 
-/* PRODUCTOS — con selección de peso y boton "agregar al carrito" */
+/* PRODUCTOS */
 .products{display:grid; grid-template-columns:1fr 1fr; gap:22px; align-items:start}
 .product-card{
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.12));
   padding:18px;border-radius:12px;border:2px solid transparent; box-shadow:0 10px 30px rgba(0,0,0,.5);
-  transition:transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
-.product-card:hover{ transform:translateY(-6px) scale(1.01); border-color:var(--accent-border); box-shadow:0 28px 70px rgba(201,164,76,.06)}
 .product-media{height:360px;border-radius:10px;overflow:hidden;background:#0b0b0b;display:flex;align-items:center;justify-content:center;border:1px solid rgba(255,255,255,.03)}
 .product-media img{width:100%;height:100%;object-fit:cover;display:block}
-.product-title{font-weight:800;color:var(--muted); margin-top:12px}
-.product-weight{margin-top:8px; display:flex; gap:10px; align-items:center}
-.weight-btn{
-  padding:.45rem .8rem;border-radius:999px;border:1px solid rgba(255,255,255,.04); background:transparent; color:var(--muted); font-weight:700; cursor:pointer;
-  transition: all .18s ease;
-}
-.weight-btn:hover{ transform:translateY(-3px); color:#fff; border-color:rgba(201,164,76,.28)}
-.add-btn{
-  margin-top:12px; display:inline-block; background:linear-gradient(90deg,var(--dorado-2),var(--dorado)); color:#120f07; padding:.7rem 1rem; border-radius:10px;
-  text-decoration:none; font-weight:800; box-shadow:var(--gold-shadow);
-}
 
-/* CART modal (CSS) */
-.cart-modal{ position:fixed; inset:0; display:grid; place-items:center; background:rgba(0,0,0,.6); opacity:0; pointer-events:none; transition:opacity .18s ease; z-index:120}
-.cart-modal:target{ opacity:1; pointer-events:auto }
-.cart-box{ width:min(520px,92%); background:linear-gradient(180deg,#0f0f10,#0b0b0b); padding:18px;border-radius:12px; border:2px solid rgba(201,164,76,.06); box-shadow:0 30px 80px rgba(0,0,0,.7)}
-.cart-box h3{color:var(--dorado); margin-bottom:10px}
-.cart-close{ display:inline-block; padding:.45rem .8rem; border-radius:10px; background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,.04); text-decoration:none; float:right}
-
-/* PROCESO - overlay text reveal */
+/* PROCESO */
 .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
-.step{
-  position:relative; overflow:hidden; border-radius:12px; height:220px; cursor:pointer;
-  border:2px solid transparent; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-}
-.step img{width:100%; height:100%; object-fit:cover; display:block; filter:brightness(.75); transition:all .35s ease}
-.step .overlay{
-  position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:14px; color:#fff;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.6) 100%); transform:translateY(0); transition:transform .25s ease;
-}
-.step h4{margin:0 0 6px 0; font-family:"Playfair Display",serif; color:var(--dorado); font-size:1.05rem}
-.step p{margin:0;color:var(--muted); font-size:.95rem; max-height:0; overflow:hidden; transition: max-height .28s ease}
-.step:hover{ transform:translateY(-6px); border-color:var(--accent-border); box-shadow:0 22px 60px rgba(201,164,76,.06) }
-.step:hover img{ filter:brightness(.45) saturate(.98) }
-.step:hover p{ max-height:120px; margin-top:6px }
+.step{position:relative; overflow:hidden; border-radius:12px; height:220px;}
+.step img{width:100%; height:100%; object-fit:cover; display:block; filter:brightness(.7); transition:all .35s ease}
+.step .overlay{position:absolute; inset:0; display:flex; flex-direction:column; justify-content:flex-end; padding:14px; color:#fff;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,.6) 100%);}
 
-/* CONTACTO — iconos grandes, dorados on hover */
+/* CONTACTO */
 .sicons{ display:flex; gap:12px; margin-top:12px; flex-wrap:wrap }
-.sicon{
-  width:72px;height:72px;border-radius:14px; display:grid; place-items:center;
-  background:linear-gradient(180deg,var(--dorado-2),var(--dorado)); color:#111; text-decoration:none; font-weight:800;
-  box-shadow:var(--gold-shadow); transition:transform .18s ease, box-shadow .18s ease;
-}
-.sicon:hover{ transform:translateY(-8px) scale(1.06); box-shadow:0 28px 80px rgba(201,164,76,.25) }
-.sicon img{width:34px;height:34px; object-fit:contain; filter:invert(1) sepia(1) saturate(0)} /* placeholder, replace icons if transparent */
-
-/* responsive */
-@media (max-width:1000px){
-  .hero{ grid-template-columns:1fr; gap:18px; padding:22px }
-  .product-media{ height:260px }
-  .steps{ grid-template-columns:repeat(2,1fr) }
-}
-@media (max-width:640px){
-  nav .wrap{ padding:0 12px }
-  .menu{ display:none }
-  .hero-right{ display:none }
-  .steps{ grid-template-columns:1fr }
-  .sicon{ width:56px;height:56px }
+.sicon img{
+  width:42px; height:42px; object-fit:contain;
 }
 </style>
 </head>
@@ -181,10 +115,9 @@ section{padding:80px 0}
 
 <!-- NAV -->
 <nav>
-  <div class="wrap">
+  <div class="wrap container">
     <a class="logo" href="#inicio" aria-label="Sinsonte Café">
-      <!-- uso el nombre que me confirmaste -->
-      <img src="assets/images/logo-sinsonte-dorado.png" alt="Logo Sinsonte">
+      <img src="assets/images/logo-sinsonte.png" alt="Logo Sinsonte">
       <span class="brand">Sinsonte Café</span>
     </a>
 
@@ -199,18 +132,27 @@ section{padding:80px 0}
 </nav>
 
 <!-- HERO -->
-<main id="inicio" style="padding-top:110px">
+<main id="inicio" class="container" style="padding-top:110px">
   <div class="hero" role="banner">
     <div class="hero-left">
+
       <h1>Sinsonte Café</h1>
+
       <div class="slogan">Una taza, una melodía</div>
 
-      <p>Pueblo Rico, Risaralda — Café de especialidad, 100% arábica, cultivado con respeto y tostado por lotes.</p>
+      <p class="lead">
+        Producimos un café de especialidad, aplicando métodos innovadores en fermentaciones
+        controladas y extendidas, que mejoran sus cualidades organolépticas. Aplicamos
+        conocimientos de microbiología del café para identificar, aislar y reproducir los
+        microorganismos que inoculamos en cada una de las fermentaciones, las cuales nos
+        permiten desarrollar perfiles de taza exóticos, únicos e irrepetibles.
+      </p>
 
       <div class="cta-row">
         <a class="btn" href="#productos">Ver productos</a>
         <a class="btn" href="#proceso" style="background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.04)">Nuestro proceso</a>
       </div>
+
     </div>
 
     <div class="hero-right">
@@ -220,16 +162,23 @@ section{padding:80px 0}
 </main>
 
 <!-- HISTORIA -->
-<section id="historia">
+<section id="historia" class="container">
   <div class="section-head">
     <h2>Nuestra historia</h2>
     <div class="sub">Pueblo Rico — Risaralda</div>
   </div>
 
-  <div class="grid" style="width:min(1100px,94%);margin:18px auto;display:grid;grid-template-columns:1fr .9fr;gap:20px">
+  <div class="grid">
     <div class="card">
-      <h3>Raíces y tradición</h3>
-      <p>Somos una familia cafetera de Pueblo Rico. Cultivamos con prácticas responsables y cuidamos cada etapa para ofrecer un café con carácter: floral, afrutado y dulce.</p>
+      <h3>Nuestra historia</h3>
+      <p>
+        Desde las montañas de Pueblo Rico, Risaralda, nace un proyecto familiar que combina
+        tradición cafetera con innovación científica. Nuestro proceso se fundamenta en
+        comprender el microbioma del café: identificamos, aislamos y reproducimos microorganismos
+        benéficos que inoculamos en fermentaciones controladas y extendidas. Este enfoque nos
+        permite crear tazas con perfiles sensoriales únicos, exóticos y completamente irrepetibles,
+        reflejando el carácter de nuestra tierra y la dedicación con la que cultivamos cada lote.
+      </p>
     </div>
 
     <div class="card landscape">
@@ -239,144 +188,64 @@ section{padding:80px 0}
 </section>
 
 <!-- PRODUCTOS -->
-<section id="productos">
-  <div class="section-head" style="padding:0 20px; margin-bottom:12px;">
+<section id="productos" class="container">
+  <div class="section-head">
     <h2>Nuestros productos</h2>
-    <div class="sub" style="color:var(--muted)">Elige variedad y peso — añade al carrito</div>
+    <div class="sub">Elige variedad y peso — añade al carrito</div>
   </div>
 
-  <div class="products" style="width:min(1100px,94%);margin:0 auto">
-    <!-- CASTILLO ROSARIO (izquierda) -->
+  <div class="products">
     <div class="product-card">
       <div class="product-media">
         <img src="assets/images/producto-castillo.jpg" alt="Castillo Rosario">
       </div>
       <div class="product-title">Castillo Rosario</div>
-
-      <div class="product-weight" style="margin-top:10px">
-        <!-- inputs visuales solo CSS -->
-        <label class="weight-btn"><input type="radio" name="castillo-peso" value="250" style="display:none" checked> 250 g</label>
-        <label class="weight-btn"><input type="radio" name="castillo-peso" value="500" style="display:none"> 500 g</label>
-      </div>
-
-      <!-- añade simulación de añadir al carrito: abre modal CSS -->
-      <a class="add-btn" href="#cart?item=Castillo%20Rosario&peso=250">Añadir al carrito</a>
     </div>
 
-    <!-- BOURBON ROSADO (derecha) -->
     <div class="product-card">
       <div class="product-media">
         <img src="assets/images/producto-bourbon.jpg" alt="Bourbon Rosado">
       </div>
       <div class="product-title">Bourbon Rosado</div>
-
-      <div class="product-weight" style="margin-top:10px">
-        <label class="weight-btn"><input type="radio" name="bourbon-peso" value="250" style="display:none" checked> 250 g</label>
-        <label class="weight-btn"><input type="radio" name="bourbon-peso" value="500" style="display:none"> 500 g</label>
-      </div>
-
-      <a class="add-btn" href="#cart?item=Bourbon%20Rosado&peso=500">Añadir al carrito</a>
     </div>
   </div>
 </section>
 
-<!-- CART MODAL (CSS-only) -->
-<div id="cart" class="cart-modal" aria-hidden="true">
-  <div class="cart-box">
-    <a href="#" class="cart-close">Cerrar</a>
-    <h3>Carrito (simulado)</h3>
-    <p style="color:var(--muted);">Simulación visual: aquí verás el artículo seleccionado. Para checkout real necesitaremos backend o integración con un servicio (Stripe, Tienda Nube, etc.).</p>
-
-    <div style="margin-top:12px; border-top:1px solid rgba(255,255,255,.03); padding-top:12px">
-      <strong style="color:var(--dorado)">Resumen</strong>
-      <p style="color:var(--muted); margin-top:6px">Producto agregado (simulado). Reemplaza con datos reales cuando integres un backend.</p>
-      <div style="display:flex;gap:8px;margin-top:12px">
-        <a class="btn" href="#productos">Seguir comprando</a>
-        <a class="add-btn" href="#">Proceder a pago (simulado)</a>
-      </div>
-    </div>
-  </div>
-</div>
-
 <!-- PROCESO -->
-<section id="proceso">
-  <div class="section-head" style="padding:0 20px">
+<section id="proceso" class="container">
+  <div class="section-head">
     <h2>Proceso</h2>
-    <div class="sub" style="color:var(--muted)">Seis etapas — pasa el cursor para ver la descripción</div>
+    <div class="sub">Seis etapas</div>
   </div>
 
-  <div class="steps" style="width:min(1100px,94%);margin:0 auto">
-    <div class="step">
-      <img src="assets/images/proceso-siembra.jpg" alt="Siembra">
-      <div class="overlay"><h4>Siembra</h4><p>Selección de semillas y preparación del terreno.</p></div>
-    </div>
-    <div class="step">
-      <img src="assets/images/proceso-recoleccion.jpg" alt="Recolección">
-      <div class="overlay"><h4>Recolección</h4><p>Cosecha manual para máxima calidad.</p></div>
-    </div>
-    <div class="step">
-      <img src="assets/images/proceso-despulpado.jpg" alt="Despulpado">
-      <div class="overlay"><h4>Despulpado</h4><p>Separación de pulpa con cuidado.</p></div>
-    </div>
-    <div class="step">
-      <img src="assets/images/proceso-fermentacion.jpg" alt="Fermentación">
-      <div class="overlay"><h4>Fermentación</h4><p>Control de tiempos y perfiles.</p></div>
-    </div>
-    <div class="step">
-      <img src="assets/images/proceso-secado.jpg" alt="Secado">
-      <div class="overlay"><h4>Secado</h4><p>Secado al sol y control de humedad.</p></div>
-    </div>
-    <div class="step">
-      <img src="assets/images/proceso-tostion.jpg" alt="Tostión">
-      <div class="overlay"><h4>Tostión & Empaque</h4><p>Tostado por lotes y empaque con protección.</p></div>
-    </div>
+  <div class="steps">
+    <div class="step"><img src="assets/images/proceso-siembra.jpg" alt=""></div>
+    <div class="step"><img src="assets/images/proceso-recoleccion.jpg" alt=""></div>
+    <div class="step"><img src="assets/images/proceso-despulpado.jpg" alt=""></div>
+    <div class="step"><img src="assets/images/proceso-fermentacion.jpg" alt=""></div>
+    <div class="step"><img src="assets/images/proceso-secado.jpg" alt=""></div>
+    <div class="step"><img src="assets/images/proceso-tostion.jpg" alt=""></div>
   </div>
 </section>
 
 <!-- CONTACTO -->
-<section id="contacto" class="container" style="padding-bottom:40px;">
-  <div class="section-head" style="padding:0 20px">
+<section id="contacto" class="container">
+  <div class="section-head">
     <h2>Contacto</h2>
-    <div class="sub" style="color:var(--muted)">Escríbenos o haz clic en las redes</div>
+    <div class="sub">Escríbenos</div>
   </div>
 
-  <div style="width:min(1100px,94%);margin:12px auto;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap">
-    <div style="flex:1;min-width:260px">
-      <div style="font-weight:700;color:var(--dorado)">Redes y mensajería</div>
-      <div style="color:var(--muted);margin-top:6px">Haz clic en los iconos para ir directo.</div>
-
-      <div class="sicons" style="margin-top:12px">
-        <a class="sicon" href="https://www.instagram.com/sinsonte_cafe" target="_blank" aria-label="Instagram"><img src="assets/images/icono-instagram.png" alt="Instagram"></a>
-        <a class="sicon" href="https://www.facebook.com/SinsonteCaf e" target="_blank" aria-label="Facebook"><img src="assets/images/icono-facebook.png" alt="Facebook"></a>
-        <a class="sicon" href="https://wa.me/573207200704" target="_blank" aria-label="WhatsApp"><img src="assets/images/icono-whatsapp.png" alt="WhatsApp"></a>
-        <a class="sicon" href="mailto:sinsontecafe@gmail.com" aria-label="Email"><img src="assets/images/icono-correo.png" alt="Email"></a>
-        <a class="sicon" href="https://www.tiktok.com/@sinsonte_cafe" target="_blank" aria-label="TikTok"><img src="assets/images/icono-tiktok.png" alt="TikTok"></a>
-      </div>
-
-      <div style="margin-top:12px;color:var(--muted)">
-        <div><strong>Instagram:</strong> @sinsonte_cafe</div>
-        <div><strong>Facebook:</strong> Sinsonte Café</div>
-        <div><strong>WhatsApp:</strong> +57 320 720 0704</div>
-        <div><strong>Email:</strong> sinsontecafe@gmail.com</div>
-      </div>
-    </div>
-
-    <div style="flex:0 0 380px; min-width:260px">
-      <!-- contact form via FormSubmit (no backend) -->
-      <form action="https://formsubmit.co/sinsontecafe@gmail.com" method="POST" style="display:flex;flex-direction:column;gap:10px;background:rgba(255,255,255,.02);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,.03)">
-        <input type="hidden" name="_subject" value="Mensaje web - Sinsonte Café">
-        <input type="hidden" name="_captcha" value="false">
-        <input name="name" type="text" placeholder="Tu nombre" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.04);background:transparent;color:var(--muted)">
-        <input name="email" type="email" placeholder="Tu correo" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.04);background:transparent;color:var(--muted)">
-        <textarea name="message" rows="4" placeholder="Tu mensaje" required style="padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,.04);background:transparent;color:var(--muted)"></textarea>
-        <input type="submit" value="Enviar mensaje" style="cursor:pointer;padding:.7rem;border-radius:10px;border:0;background:linear-gradient(90deg,var(--dorado-2),var(--dorado));font-weight:700;color:#111">
-      </form>
-    </div>
+  <div class="sicons">
+    <a class="sicon" href="#"><img src="assets/images/icono-instagram.png"></a>
+    <a class="sicon" href="#"><img src="assets/images/icono-facebook.png"></a>
+    <a class="sicon" href="#"><img src="assets/images/icono-whatsapp.png"></a>
+    <a class="sicon" href="#"><img src="assets/images/icono-correo.png"></a>
+    <a class="sicon" href="#"><img src="assets/images/icono-tiktok.png"></a>
   </div>
 </section>
 
-<footer style="padding:20px 0;text-align:center;color:var(--muted)">
-  © 2025 Sinsonte Café — Una taza, una melodía. Pueblo Rico, Risaralda.
+<footer>
+  <div class="container">© 2025 <strong>Sinsonte Café</strong> — Una taza, una melodía.</div>
 </footer>
 
 </body>
